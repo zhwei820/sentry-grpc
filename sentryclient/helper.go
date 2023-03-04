@@ -6,7 +6,7 @@ import (
 	"github.com/zhwei820/gconv/deepcopy"
 )
 
-const TraceID = "x-request-id"
+const TraceID = "x_request_id"
 
 type ErrorRecordBase struct {
 	Msg        string `json:"msg" bson:"msg"`
