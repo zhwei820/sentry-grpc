@@ -14,7 +14,7 @@ type ErrorRecordBase struct {
 
 	Detail string `json:"detail" bson:"detail"`
 
-	Collection string `json:"collection" bson:"collection"`
+	Biz string `json:"biz" bson:"biz"`
 }
 
 func FromSentryEvent(e *sentry.Event, biz string) *SendEventReq {
@@ -22,7 +22,7 @@ func FromSentryEvent(e *sentry.Event, biz string) *SendEventReq {
 		Msg:        e.Message,
 		Detail:     gconv.String(e.Extra),
 		XRequestId: gconv.String(e.Extra[TraceID]),
-		Collection: biz,
+		Biz:        biz,
 	}
 }
 

@@ -10,7 +10,7 @@ message SendEventReq {
   string msg = 2;
   string x_request_id = 3;
   string detail = 4;
-  string collection = 5;
+  string biz = 5;
 }
 
 message EmptyResp {}
