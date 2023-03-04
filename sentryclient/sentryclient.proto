@@ -8,6 +8,7 @@ package sentryclient;
 option go_package = "./sentryclient";
 
 message SendEventReq {
+  
 
   message Breadcrumbs {
     string type = 1;
@@ -82,6 +83,7 @@ message SendEventReq {
   google.protobuf.Timestamp start_timestamp = 24;
   repeated Spans spans = 25;
   Transaction_info transaction_info = 26;
+  string biz = 27;
 }
 
 message EmptyResp {}
