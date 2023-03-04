@@ -1,0 +1,93 @@
+
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package sentryclient;
+
+option go_package = "./sentryclient";
+
+message SendEventReq {
+
+  message Breadcrumbs {
+    string type = 1;
+    string category = 2;
+    string message = 3;
+    string level = 5;
+  }
+
+
+
+  message Sdk {
+    string name = 1;
+    string version = 2;
+  }
+
+  message Threads {
+    string id = 1;
+    string name = 2;
+    bool crashed = 4;
+    bool current = 5;
+  }
+
+
+  message User {
+    string id = 1;
+    string email = 2;
+    string ip_address = 3;
+    string username = 4;
+    string name = 5;
+    string segment = 6;
+  }
+
+
+  message Request {
+    string url = 1;
+    string method = 2;
+    string data = 3;
+    string query_string = 4;
+    string cookies = 5;
+  }
+
+  message Spans {
+    string trace_id = 1;
+    string span_id = 2;
+    string op = 3;
+    string description = 4;
+    google.protobuf.Timestamp start_timestamp = 7;
+    google.protobuf.Timestamp timestamp = 8;
+    string parent_span_id = 10;
+  }
+
+  message Transaction_info { string source = 1; }
+
+  repeated Breadcrumbs breadcrumbs = 1;
+  string dist = 3;
+  string environment = 4;
+  string event_id = 5;
+  repeated string fingerprint = 7;
+  string level = 8;
+  string message = 9;
+  string platform = 10;
+  string release = 11;
+  Sdk sdk = 12;
+  string server_name = 13;
+  repeated Threads threads = 14;
+  google.protobuf.Timestamp timestamp = 16;
+  string transaction = 17;
+  User user = 18;
+  string logger = 19;
+  Request request = 21;
+  string type = 23;
+  google.protobuf.Timestamp start_timestamp = 24;
+  repeated Spans spans = 25;
+  Transaction_info transaction_info = 26;
+}
+
+message EmptyResp {}
+
+// Sentry send message to SentryServer
+service Sentry {
+  // SendEvent
+  rpc SendEvent(SendEventReq) returns (EmptyResp) {}
+}
