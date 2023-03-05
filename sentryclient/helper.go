@@ -10,14 +10,14 @@ const TraceID = "x_request_id"
 const errorVerbose = "errorVerbose"
 
 type ErrorRecordBase struct {
-	Msg        string `json:"msg" bson:"msg"`
-	XRequestID string `json:"x_request_id" bson:"x_request_id"`
+	Msg        string
+	XRequestID string
 
-	Detail       string `json:"detail" bson:"detail"`
-	ErrorVerbose string `json:"error_verbose" bson:"error_verbose"`
+	Detail       string
+	ErrorVerbose string
 
-	Biz       string `json:"biz" bson:"biz"`
-	Timestamp int64  `json:"timestamp" bson:"timestamp"`
+	Biz       string
+	Timestamp int64
 }
 
 /*
