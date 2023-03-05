@@ -7,12 +7,12 @@ package sentryclient;
 option go_package = "./sentryclient";
 
 message SendEventReq {
-  string msg = 1;
-  string x_request_id = 2;
-  string detail = 3;
-  string error_verbose = 4;
-  string biz = 5;
-  int64 timestamp = 6;
+  string Msg = 1;
+  string XRequestId = 2;
+  string Detail = 3;
+  string ErrorVerbose = 4;
+  string Biz = 5;
+  int64 Timestamp = 6;
 }
 
 message EmptyResp {}
